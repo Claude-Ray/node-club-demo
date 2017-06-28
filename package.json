@@ -1,0 +1,39 @@
+{
+  "name": "node-club-demo",
+  "version": "1.0.0",
+  "description": "A simple club demo for learning Node.js and Koa",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Claude-Ray/node-club-demo.git"
+  },
+  "author": "claude",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Claude-Ray/node-club-demo/issues"
+  },
+  "homepage": "https://github.com/Claude-Ray/node-club-demo#readme",
+  "dependencies": {
+    "co-cache": "^2.4.1",
+    "co-ejs": "^1.5.2",
+    "config-lite": "^2.0.0",
+    "koa": "^2.3.0",
+    "koa-bodyparser": "^4.2.0",
+    "koa-errorhandler": "^0.1.1",
+    "koa-flash": "^1.0.0",
+    "koa-frouter": "^0.5.0",
+    "koa-generic-session": "^1.11.6",
+    "koa-generic-session-mongo": "^0.4.0",
+    "koa-gzip": "^0.1.0",
+    "koa-logger": "^3.0.0",
+    "koa-router-cache": "^2.0.0",
+    "koa-scheme": "^2.2.1",
+    "koa-static-cache": "^5.1.1",
+    "merge-descriptors": "^1.0.1",
+    "mongoose": "^4.11.0",
+    "validator": "^7.1.0"
+  }
+}
