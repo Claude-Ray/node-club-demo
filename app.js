@@ -1,3 +1,5 @@
+'use strict';
+
 const app = require('koa')();
 const logger = require('koa-logger');
 const bodyparser = require('koa-bodyparser');
@@ -35,6 +37,6 @@ app.use(gzip());
 app.use(render(app, renderConf));
 app.use(router(app, config.routerConf));
 
-app.listen(config.port,()=>{
+app.listen(config.port, () => {
   console.log('Server listening on: ', config.port);
 });
