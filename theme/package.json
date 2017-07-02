@@ -1,0 +1,17 @@
+{
+  "name": "Node-Club",
+  "version": "0.0.1",
+  "description": "A simple club demo for learning Node.js and Koa",
+  "locale": "zh-cn",
+  "tabs": [
+    "全部",
+    "原创",
+    "分享",
+    "问答"
+  ],
+  "dependencies": {
+    "gravatar": "^1.6.0",
+    "markdown-it": "^8.3.1",
+    "moment": "^2.18.1"
+  }
+}
