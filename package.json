@@ -4,6 +4,7 @@
   "description": "A simple club demo for learning Node.js and Koa",
   "main": "app.js",
   "scripts": {
+    "preinstall": "cd theme && npm install",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
