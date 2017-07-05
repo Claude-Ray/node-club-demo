@@ -1,6 +1,7 @@
 'use strict';
 
-const app = require('koa')();
+const koa = require('koa');
+const app = new koa();
 const logger = require('koa-logger');
 const bodyparser = require('koa-bodyparser');
 const staticCache = require('koa-static-cache');
@@ -12,7 +13,7 @@ const gzip = require('koa-gzip');
 const routerCache = require('koa-router-cache');
 const scheme = require('koa-scheme');
 const router = require('koa-frouter');
-const config = require('config-lite');
+const config = require('config-lite')(__dirname);
 
 // 避免循环依赖
 const merge = require('merge-descriptors');

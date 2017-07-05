@@ -13,6 +13,16 @@ module.exports = {
     "request": {
       "body": checkSignupBody
     }
+  },
+  "(GET|POST) /signin": {
+    "request": {
+      "session": checkNotLogin
+    }
+  },
+  "POST /signin"      : {
+    "request": {
+      "body": checkSigninBody
+    }
   }
 };
 
@@ -70,3 +80,20 @@ function checkSignupBody() {
   return true;
 }
 
+function checkSigninBody() {
+  let body = this.request.body;
+  let flash;
+  if (!body || !body.name) {
+    flash = {error: '请填写用户名！'};
+  } else if (!body.password) {
+    flash = {error: '请填写密码！'};
+  }
+  if (flash) {
+    this.flash = flash;
+    this.redirect('back');
+    return false;
+  }
+  body.name = validator.trim(body.name);
+  body.password = md5(validator.trim(body.password));
+  return true;
+}
