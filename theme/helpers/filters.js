@@ -7,7 +7,7 @@ const pkg = require('../package');
 
 moment.locale(pkg.locale);
 
-module.exports({
+module.exports = ({
   get fromNow() {
     return (data) => {
       return moment(data).fromNow();

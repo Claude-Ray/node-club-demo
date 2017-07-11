@@ -14,11 +14,12 @@ const routerCache = require('koa-router-cache');
 const scheme = require('koa-scheme');
 const router = require('koa-frouter');
 const config = require('config-lite')(__dirname);
+const render = require('co-ejs');
 
 // 避免循环依赖
 const merge = require('merge-descriptors');
 const core = require('./lib/core');
-const renderConf = require('config.renderConf');
+const renderConf = require(config.renderConf);
 merge(renderConf.locals || {}, core, false);
 
 app.keys = [renderConf.locals.$app.name];
@@ -26,7 +27,7 @@ app.keys = [renderConf.locals.$app.name];
 // 中间件的加载顺序很重要
 app.use(errorhandler());
 app.use(bodyparser());
-app.use(staticCache(confg.staticCacheConf));
+app.use(staticCache(config.staticCacheConf));
 app.use(logger());
 app.use(session({
   store: new MongoStore(config.mongodb)
