@@ -23,6 +23,16 @@ module.exports = {
     "request": {
       "body": checkSigninBody
     }
+  },
+  "(GET|POST) /create": {
+    "request": {
+      "body": checkLogin
+    }
+  },
+  "POST /create"      : {
+    "request": {
+      "body": checkCreateBody
+    }
   }
 };
 
@@ -95,5 +105,26 @@ function checkSigninBody() {
   }
   body.name = validator.trim(body.name);
   body.password = md5(validator.trim(body.password));
+  return true;
+}
+
+function checkCreateBody() {
+  let body = this.request.body;
+  let flash;
+  if (!body || !body.title || body.title.length < 10) {
+    flash = {error: '请填写合法标题！'};
+  } else if (!body.tab) {
+    flash = {error: '请选择版块！'};
+  } else if (!body.content) {
+    flash = {error: '请填写内容！'};
+  }
+  if (flash) {
+    this.flash = flash;
+    this.redirect('back');
+    return false;
+  }
+  body.title = validator.trim(body.title);
+  body.tab = validator.trim(body.tab);
+  body.content = validator.trim(body.content);
   return true;
 }
